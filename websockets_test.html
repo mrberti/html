@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WebSocket demo</title>
+    </head>
+	
+    <body>
+	<p id="p">no data</p>
+        <script>
+            var websocket = new WebSocket("ws://127.0.0.1:5678/"),
+                p = document.getElementById("p");
+			
+            websocket.onmessage = function (event) {
+                p.innerHTML = event.data;
+            };
+			/*
+			websocket.onerror = function (error) {
+				p.innerHTML = JSON.stringify(error);
+			};
+			*/
+			
+			/*
+			websocket.onclose = function () {
+				p.innerHTML = "Connection Closed";
+			};
+			*/
+        </script>
+    </body>
+</html>
